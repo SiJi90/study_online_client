@@ -6,6 +6,14 @@ import Batch from '@/pages/Batch/Batch'
 import Role from '@/pages/Role/Role'
 import Course from '@/pages/Course/Course'
 import Courseware from '@/pages/Courseware/Courseware'
+import Login from '@/pages/Login/Login'
+import StudentMain from '@/pages/StudentMain/StudentMain'
+import StudentBatch from '@/pages/StudentMain/Batch/Batch'
+import StudentCourse from '@/pages/StudentMain/Course/Course'
+import StudentRecord from '@/pages/StudentMain/Record/Record'
+import StudentProfile from '@/pages/StudentMain/Profile/Profile'
+import StudentMessage from '@/pages/StudentMain/Message/Message'
+
 
 Vue.use(Router)
 
@@ -33,6 +41,34 @@ export default new Router({
           path: '/courseware',
           component: Courseware
         },
+      ]
+    },
+    // 登录路由界面
+    {
+      path: '/', redirect: '/login'
+    },
+    {
+      path: '/login', component: Login
+    },
+    // 学生主界面
+    {
+      path: '/student/index', component: StudentMain,
+      children: [
+        {
+          path: '/student/batch', component: StudentBatch
+        },
+        {
+          path: '/student/course', component: StudentCourse
+        },
+        {
+          path: '/student/record', component: StudentRecord
+        },
+        {
+          path: '/student/profile',component: StudentProfile
+        },
+        {
+          path: '/student/message',component: StudentMessage
+        }
       ]
     }
   ]

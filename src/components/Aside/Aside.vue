@@ -5,8 +5,9 @@
         :collapse="isShow"
         align="left"
         router
+        @select="handSelect"
         active-text-color="#ff0000"
-        default-active="$router.path"
+        :default-active="indexPath"
         style="height: 100vh">
         <el-menu-item index="/index">
           <i class="el-icon-house"></i>
@@ -43,6 +44,9 @@
 <script>
   export default {
     name: "Aside",
+    mounted() {
+      this.indexPath = this.$route.path
+    },
     data() {
       return {
         isShow: false,
@@ -51,7 +55,9 @@
           left: '9%',
           top: '50%',
         },
-        classObj: 'el-icon-d-arrow-left'
+        classObj: 'el-icon-d-arrow-left',
+        // 激活菜单
+        indexPath: ''
       }
     },
     methods: {
@@ -64,9 +70,9 @@
           this.styleObj.left = '3.5%';
           this.classObj = 'el-icon-d-arrow-right'
         }
-        console.log(this.$router)
-      }
-    }
+      },
+    },
+
   }
 </script>
 

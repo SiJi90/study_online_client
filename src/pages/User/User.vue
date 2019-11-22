@@ -20,7 +20,7 @@
       <!--用户基本信息表-->
       <el-card style="margin-top: 10px">
         <el-table
-          height="340px"
+          max-height="340px"
           empty-text="没有找到相关信息"
           :data="userPageInfo.list"
           @selection-change="handSelectionChange"
@@ -147,6 +147,9 @@
       this.$store.commit(IS_SHOW, false)
       // 获取所有用户角色
       this.$store.dispatch('getRoleList')
+
+      const peng = 'xttzuikeaiofgeva, ixyuakzpxnfbega, jskakwbdvxgahwotbrcagsjxbdhshdgsjwapd. inbshfgshdkxbansoxuctebtngkajchevqkfurb'
+      console.log()
     },
     computed: {
       // 获取 vuex state 里的 userPageInfo
